@@ -24,7 +24,7 @@ public class TemplateDesc : MonoBehaviour
     [Serializable]
     public struct ItemCategory
     {
-        public bool CanBeNothing;
+        public bool CanBeNothing, CanBeMultiple;
         public SkinnedItem[] Items;
     }
 
@@ -34,6 +34,7 @@ public class TemplateDesc : MonoBehaviour
         public string Name;
         public Sprite Icon;
         public MeshDesc[] Meshes;
+        [HideInInspector] public bool Using;
     }
 
     [Serializable]
@@ -50,6 +51,7 @@ public class TemplateDesc : MonoBehaviour
         public string Name;
         public Sprite Icon;
         public Material Variant;
+        [HideInInspector] public bool Using;
     }
     [Serializable]
     public struct MiscItem
@@ -57,5 +59,6 @@ public class TemplateDesc : MonoBehaviour
         public string Name;
         public Sprite Icon;
         public GameObject Object;
+        [HideInInspector] public bool Using;
     }
 }
