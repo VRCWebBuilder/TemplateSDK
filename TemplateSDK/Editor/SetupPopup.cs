@@ -55,6 +55,17 @@ public class SetupPopup : EditorWindow
             writer2.Close();
 
             AssetDatabase.ImportAsset(path2);
+
+            //-done-
+
+            string file = "Assets/TemplateSDK/Editor/TemplateBuilder.cs";
+            var lines = File.ReadAllLines(file);
+            lines[0] = "";
+            lines[lines.Length - 1] = "";
+            File.WriteAllLines(file, lines);
+
+            AssetDatabase.Refresh();
+
             //-done-
 
             ShowWindow2();

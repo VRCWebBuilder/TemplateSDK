@@ -1,3 +1,4 @@
+using UnityEditor; public class TemplateBuilder : EditorWindow { public TemplateDesc.Customization AvatarCustomizationOptions;/*
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -14,7 +15,7 @@ using System.IO.Compression;
 using Codice.Client.BaseCommands;
 
 public class TemplateBuilder : EditorWindow
-{   
+{
     public TemplateDesc.Customization AvatarCustomizationOptions;
 
     Vector2 scrollPos;
@@ -107,9 +108,9 @@ public class TemplateBuilder : EditorWindow
 
             if (platforms[i] == BuildTarget.WebGL)
             {
-                 TempGO = new GameObject();
-                 TempDesc = TempGO.AddComponent<VRCAvatarDescriptor>();
-                 TempManager = TempGO.AddComponent<PipelineManager>();
+                TempGO = new GameObject();
+                TempDesc = TempGO.AddComponent<VRCAvatarDescriptor>();
+                TempManager = TempGO.AddComponent<PipelineManager>();
 
 
                 TempDesc.GetCopyOf(AvatarGO.GetComponent<PipelineManager>());
@@ -121,9 +122,9 @@ public class TemplateBuilder : EditorWindow
 
             bool prefabSuccess;
             PrefabUtility.SaveAsPrefabAsset(AvatarGO, localPath, out prefabSuccess);
-            /*if (prefabSuccess)
-                Debug.Log("<color=green>Prefab was saved successfully!</color> (Now mark it with the correct assetbundle)");
-*/
+            ///if (prefabSuccess)
+                ///Debug.Log("<color=green>Prefab was saved successfully!</color> (Now mark it with the correct assetbundle)");
+//
 
             //PrefabAssetType Prefab = (PrefabAssetType)AssetDatabase.LoadAssetAtPath("Assets/AviTemplateSDK/Templates/" + AvatarCustomizationOptions.Name + ".prefab", typeof(PrefabAssetType)) as PrefabAssetType;
 
@@ -172,10 +173,10 @@ public class TemplateBuilder : EditorWindow
         Debug.Log("<color=lime>AVATAR TEMPLATE COMPLETE!</color>");
     }
 
-    /*IEnumerator PrepareWebPackage()
-    {
-        
-    }*/
+    //IEnumerator PrepareWebPackage()
+    //{
+    //    
+    //}
 
     //[MenuItem("Avatar Template/(2) Build Templates")]
     public void BuildAllAssetBundles(BuildTarget BuildTo)
@@ -185,10 +186,11 @@ public class TemplateBuilder : EditorWindow
         Directory.CreateDirectory(assetBundleDirectory);
         BuildPipeline.BuildAssetBundles(assetBundleDirectory, BuildAssetBundleOptions.ChunkBasedCompression, BuildTo);
         AssetDatabase.Refresh();
-        Debug.Log("<color=green>"+ BuildTo.ToString() +" Compiled!</color>");
+        Debug.Log("<color=green>" + BuildTo.ToString() + " Compiled!</color>");
         //purge temp / modified assets
         AssetDatabase.DeleteAsset("Assets/TemplateSDK/Templates/Temp/Avatar.prefab");
-        if (BuildTo == BuildTarget.WebGL) {
+        if (BuildTo == BuildTarget.WebGL)
+        {
             VRCAvatarDescriptor Avi = AvatarGO.AddComponent<VRCAvatarDescriptor>();
             PipelineManager Pipe = AvatarGO.AddComponent<PipelineManager>();
 
@@ -238,3 +240,4 @@ public static class CopyComponent
         ZipFile.CreateFromDirectory(sourcePath, archivePath);
     }
 }
+*/}
